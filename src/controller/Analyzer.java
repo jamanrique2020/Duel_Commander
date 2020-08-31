@@ -15,9 +15,11 @@ public class Analyzer {
     public Collection compareCards() throws IOException{
 
         FileProcessor listCardsUser = new FileProcessor();
-        DbBannedCards nameBannedCards = new DbBannedCards();
+        DbBannedCards dbController = new DbBannedCards();
+        //Collection<String> bannedCards = dbController.getListOfBannedCardNames() //Retorna una Collection<String>
 
         List listBannedCards = Arrays.asList(listCardsUser.readDecklistFile().stream().filter(p -> p.contains("Fleecemane Lion")).collect(Collectors.toList()));
+        //List listBannedCards = listCardsUser.readDecklistFile().stream().filter(p -> bannedCards.contains(p)).collect(Collectors.toList());
 
         return listBannedCards;
     }
